@@ -99,6 +99,7 @@ export default function SiteFooter() {
   const footerRef = useRef<HTMLElement>(null);
   const wordmarkStageRef = useRef<HTMLDivElement>(null);
   const [activeFanId, setActiveFanId] = useState<string>('shawn');
+  const [isWordmarkVisible, setIsWordmarkVisible] = useState(false);
 
   // Smooth interactive horizontal spotlight coordinate (0..100%) across the ABDULHAMEED wordmark
   const [spotlightX, setSpotlightX] = useState<number>(50);
@@ -106,6 +107,20 @@ export default function SiteFooter() {
   const [hoveredCharIdx, setHoveredCharIdx] = useState<number | null>(null);
   const targetSpotlightRef = useRef<number>(50);
   const currentSpotlightRef = useRef<number>(50);
+
+  // Reveal the footer wordmark as it enters the viewport and reverse the
+  // motion when it leaves, so the identity feels alive during page scroll.
+  useEffect(() => {
+    const stage = wordmarkStageRef.current;
+    if (!stage || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsWordmarkVisible(entry.isIntersecting),
+      { threshold: 0.18 }
+    );
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
 
   // Smooth 60fps lerp for the horizon & wordmark spotlight so mouse/touch motion feels liquid-smooth
   useEffect(() => {
@@ -578,7 +593,12 @@ export default function SiteFooter() {
                     setIsWordmarkHovered(true);
                     setHoveredCharIdx(idx);
                   }}
-                  className={`inline-block shrink-0 cursor-pointer bg-gradient-to-b bg-clip-text font-display text-[13vw] leading-[0.82] font-extrabold tracking-[-0.03em] text-transparent transition-all duration-300 ease-out sm:text-[13.2vw] lg:text-[13.4vw] xl:text-[11.2rem] ${edgeOpticalAlign} ${liftClass} ${colorClass}`}
+                  className={`inline-block shrink-0 cursor-pointer bg-gradient-to-b bg-clip-text font-display text-[13vw] leading-[0.82] font-extrabold tracking-[-0.03em] text-transparent transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-[13.2vw] lg:text-[13.4vw] xl:text-[11.2rem] ${edgeOpticalAlign} ${liftClass} ${colorClass}`}
+                  style={{
+                    opacity: isWordmarkVisible ? 1 : 0,
+                    filter: isWordmarkVisible ? 'blur(0)' : 'blur(8px)',
+                    transitionDelay: `${idx * 45}ms`,
+                  }}
                 >
                   {char}
                 </span>
