@@ -321,6 +321,12 @@ export default function AboutPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#A84308]" />
                     <span>
+                      Current CGPA: <strong className="text-[#12161F]">3.55 / 4.00</strong>.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#A84308]" />
+                    <span>
                       Developing and customizing responsive WordPress websites
                       and dynamic content directories.
                     </span>

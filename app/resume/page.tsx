@@ -313,6 +313,9 @@ export default function ResumePage() {
                   <p className="text-sm font-medium text-[#4B5262]">
                     Virtual University of Pakistan · Ongoing
                   </p>
+                  <p className="mt-2 text-sm font-semibold text-[#12161F]">
+                    Current CGPA: 3.55 / 4.00
+                  </p>
                   <p className="mt-2 text-xs leading-relaxed text-[#4B5262]">
                     Coursework includes Data Structures &amp; Algorithms,
                     Object-Oriented Programming, Relational Database Management

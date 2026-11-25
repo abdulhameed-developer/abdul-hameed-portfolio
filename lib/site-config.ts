@@ -5,7 +5,10 @@
  * Never uses localhost, 127.0.0.1, or temporary preview container URLs
  * as the canonical production domain.
  */
-const DEFAULT_CANONICAL_ORIGIN = 'https://abdulhameed.dev';
+// The verified production deployment for this repository. The custom
+// abdulhameed.dev domain currently serves a different Vercel project, so it
+// must not be used as the canonical identity until it is attached here.
+const DEFAULT_CANONICAL_ORIGIN = 'https://abdul-hameed-portfolio-rho.vercel.app';
 
 export function isTemporaryOrLocalOrigin(rawUrl?: string | null): boolean {
   if (!rawUrl || typeof rawUrl !== 'string') return true;
