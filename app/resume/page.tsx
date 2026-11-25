@@ -5,7 +5,9 @@ import {
   ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
+  Github,
   Globe,
+  Linkedin,
   Mail,
   MapPin,
   Phone,
@@ -119,17 +121,41 @@ export default function ResumePage() {
                     <Phone className="h-3.5 w-3.5 text-[#C85A17]" />
                     <span>{DEVELOPER_PROFILE.whatsappDisplay}</span>
                   </p>
-                  <p className="flex items-center gap-2 md:justify-end">
-                    <Globe className="h-3.5 w-3.5 text-[#C85A17]" />
+                  <nav
+                    aria-label="Professional links"
+                    className="flex items-center gap-2 pt-1 md:justify-end"
+                  >
+                    <a
+                      href={portfolioUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open portfolio"
+                      title="Portfolio"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#12161F]/15 text-[#12161F] transition-colors hover:border-[#C85A17] hover:bg-[#C85A17] hover:text-white print:border-[#12161F] print:hover:bg-white print:hover:text-[#12161F]"
+                    >
+                      <Globe className="h-4 w-4" />
+                    </a>
+                    <a
+                      href={DEVELOPER_PROFILE.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open LinkedIn profile"
+                      title="LinkedIn"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#12161F]/15 text-[#12161F] transition-colors hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white print:border-[#12161F] print:hover:bg-white print:hover:text-[#12161F]"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
                     <a
                       href={DEVELOPER_PROFILE.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs text-[#12161F] hover:text-[#C85A17]"
+                      aria-label="Open GitHub profile"
+                      title="GitHub"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#12161F]/15 text-[#12161F] transition-colors hover:border-[#12161F] hover:bg-[#12161F] hover:text-white print:border-[#12161F] print:hover:bg-white print:hover:text-[#12161F]"
                     >
-                      github.com/{DEVELOPER_PROFILE.githubHandle}
+                      <Github className="h-4 w-4" />
                     </a>
-                  </p>
+                  </nav>
                 </div>
               </div>
 
