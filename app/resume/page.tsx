@@ -343,32 +343,9 @@ export default function ResumePage() {
 
                 <div>
                   <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#C85A17]">
-                    Verified Profiles &amp; Portfolio
+                    Additional Verified Profile
                   </h2>
                   <ul className="mt-3 space-y-2 text-xs text-[#4B5262] sm:text-sm">
-                    <li>
-                      <strong className="text-[#12161F]">GitHub:</strong>{' '}
-                      <a
-                        href={DEVELOPER_PROFILE.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-[#C85A17]"
-                      >
-                        {DEVELOPER_PROFILE.githubUrl}
-                      </a>{' '}
-                      (12+ Public Repositories)
-                    </li>
-                    <li>
-                      <strong className="text-[#12161F]">LinkedIn:</strong>{' '}
-                      <a
-                        href={DEVELOPER_PROFILE.linkedinUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-[#C85A17]"
-                      >
-                        {DEVELOPER_PROFILE.linkedinUrl}
-                      </a>
-                    </li>
                     <li>
                       <strong className="text-[#12161F]">WordPress.org:</strong>{' '}
                       <a
