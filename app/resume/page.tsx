@@ -13,7 +13,8 @@ import {
 import Navbar from '@/components/Navbar';
 import SiteFooter from '@/components/SiteFooter';
 import ResumePrintButton from '@/components/ResumePrintButton';
-import { DEVELOPER_PROFILE, FEATURED_PROJECTS } from '@/lib/portfolio-data';
+import { DEVELOPER_PROFILE } from '@/lib/portfolio-data';
+import { resolvePublicSiteOrigin } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Resume & CV — Abdul Hameed | Full-Stack Web Developer',
@@ -49,6 +50,8 @@ export const metadata: Metadata = {
 };
 
 export default function ResumePage() {
+  const portfolioUrl = resolvePublicSiteOrigin();
+
   return (
     <div className="min-h-screen bg-[#F8F6F1] text-[#12161F] print:bg-white">
       <div className="print:hidden">
@@ -261,42 +264,31 @@ export default function ResumePage() {
               </div>
             </section>
 
-            {/* Selected Production Projects & Web Applications */}
+            {/* Portfolio */}
             <section className="border-b border-[#12161F]/10 py-7">
               <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#C85A17]">
-                Selected Production Projects &amp; Engineering Highlights
+                Portfolio
               </h2>
-
-              <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {FEATURED_PROJECTS.slice(0, 6).map((project) => (
-                  <div
-                    key={project.id}
-                    className="rounded-xl border border-[#12161F]/10 bg-[#F8F6F1] p-4 print:break-inside-avoid print:bg-white"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <h3 className="font-display text-base font-bold text-[#12161F]">
-                          {project.title}
-                        </h3>
-                        <p className="font-mono text-[11px] text-[#C85A17]">
-                          {project.role} · {project.ownershipLabel || project.category}
-                        </p>
-                      </div>
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="font-mono text-[11px] font-semibold text-[#12161F] underline hover:text-[#C85A17] print:hidden"
-                      >
-                        Case Study
-                      </Link>
-                    </div>
-                    <p className="mt-2 text-xs leading-relaxed text-[#4B5262]">
-                      {project.clientSummary}
-                    </p>
-                    <p className="mt-2 font-mono text-[10px] text-[#12161F]/75">
-                      {project.techStack.slice(0, 5).join(' · ')}
-                    </p>
-                  </div>
-                ))}
+              <div className="mt-5 rounded-xl border border-[#C85A17]/25 bg-[#F8F6F1] p-5 print:bg-white">
+                <h3 className="font-display text-xl font-bold text-[#12161F]">
+                  Full portfolio, case studies &amp; verified work
+                </h3>
+                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[#4B5262]">
+                  Recruiters can explore my complete project archive, live
+                  website work, custom WordPress plugins, Shopify storefronts,
+                  Next.js applications, technical approach, and verified
+                  production details on my portfolio.
+                </p>
+                <a
+                  href={portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#12161F] px-4 py-3 text-xs font-semibold text-white transition-colors hover:bg-[#C85A17] print:border print:border-[#12161F] print:bg-white print:text-[#12161F]"
+                >
+                  <Globe className="h-3.5 w-3.5" />
+                  <span>View complete portfolio: {portfolioUrl.replace(/^https?:\/\//, '')}</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
               </div>
             </section>
 
